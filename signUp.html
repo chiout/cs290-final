@@ -10,11 +10,6 @@
 			angular.module("signUpForm", []).controller("signUpFormCtrl", function ($scope) {
 				$scope.user= {}; // declare the empty object
 
-				$scope.submitForm = function (user) {
-					console.log("Hi");
-					console.log(user.first);
-				}
-
 			});
 		</script>
 	</head>
@@ -35,7 +30,7 @@
 						<li>If your text turns red, that means your input is not valid.</li>
 					</ul>
 				</p>
-				<form name="signUp" class="sIForm" method="POST" action="signUp.html" ng-submit="submitForm(user)" novalidate>
+				<form name="signUp" class="sIForm" method="POST" action=accounts.php novalidate>
 					<p class="block">
 						<label for="fName" class="sILabel">First Name:</label>
 						<input class="sIField" type="text" id="fName" ng-model="user.first" name="first" required>
@@ -44,10 +39,10 @@
 						<input class="sIField" type="text" id="lName" ng-model="user.last" name="last" required>
 					<p class="block">
 						<label for="username" class="sILabel">Username:</label>
-						<input class="sIField" type="text" id="username" ng-model="user.username" ng-maxlength="8" ng-pattern="/[a-z]/" required>
+						<input class="sIField" name="username" type="text" id="username" ng-model="user.username" ng-maxlength="8" ng-pattern="/[a-z]/" required>
 					<p class="block">
 						<label for="password" class="sILabel">Password:</label>
-						<input class="sIField" type="password" id="password" ng-model="user.password" ng-minlength="6" ng-maxlength="10" required>
+						<input class="sIField" type="password" name="pword" id="password" ng-model="user.password" ng-minlength="6" ng-maxlength="10" required>
 					<p class="block">
 						<button type="submit" id="signUpButton" ng-disabled="signUp.$invalid">Sign Up</button>
 					</p>
