@@ -7,8 +7,18 @@
 		<link href='http://fonts.googleapis.com/css?family=Muli:300,400|Roboto:400,300,700,900,500|Pontano+Sans' rel='stylesheet' type='text/css'>
 		<LINK type="text/css" rel="stylesheet" href="styling.css">
 		<script>
-			angular.module("signUpForm", []).controller("signUpFormCtrl", function ($scope) {
-				$scope.user= {}; // declare the empty object
+			angular.module("signUpForm", []).controller("signUpFormCtrl", function ($scope, $http) {
+
+				$scope.person = {};
+
+				$scope.subForm = function () {
+
+					$http.post('accounts.php', $scope.person).success(function(data, status) {
+						console.log("Success!");
+					}). error(function(data, status) {
+						console.log("Error sending data");
+					});
+				};
 
 			});
 		</script>
@@ -30,19 +40,19 @@
 						<li>If your text turns red, that means your input is not valid.</li>
 					</ul>
 				</p>
-				<form name="signUp" class="sIForm" method="POST" action=accounts.php novalidate>
+				<form name="signUp" class="sIForm" ng-submit="subForm()" novalidate>
 					<p class="block">
 						<label for="fName" class="sILabel">First Name:</label>
-						<input class="sIField" type="text" id="fName" ng-model="user.first" name="first" required>
+						<input class="sIField" type="text" id="fName" ng-model="person.first" name="first" required>
 					<p class="block">
 						<label for="lName" class="sILabel">Last Name:</label>
-						<input class="sIField" type="text" id="lName" ng-model="user.last" name="last" required>
+						<input class="sIField" type="text" id="lName" ng-model="person.last" name="last" required>
 					<p class="block">
 						<label for="username" class="sILabel">Username:</label>
-						<input class="sIField" name="username" type="text" id="username" ng-model="user.username" ng-maxlength="8" ng-pattern="/[a-z]/" required>
+						<input class="sIField" name="username" type="text" id="username" ng-model="person.username" ng-maxlength="8" ng-pattern="/[a-z]/" required>
 					<p class="block">
 						<label for="password" class="sILabel">Password:</label>
-						<input class="sIField" type="password" name="pword" id="password" ng-model="user.password" ng-minlength="6" ng-maxlength="10" required>
+						<input class="sIField" type="password" name="pword" id="password" ng-model="person.password" ng-minlength="6" ng-maxlength="10" required>
 					<p class="block">
 						<button type="submit" id="signUpButton" ng-disabled="signUp.$invalid">Sign Up</button>
 					</p>
