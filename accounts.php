@@ -1,22 +1,19 @@
 <?php
-/*
+
 require("../cred.php");
 
 $connect = new mysqli($host, $user, $pd, $db);
 if ($connect->connect_errno) {
   echo "Connection failed: $connect->connect_errno \n";
 } // this connects to the database
-*/
+
 $userData = file_get_contents("php://input");
+$user = json_decode($userData);
 
-var_dump(json_decode($userData));
-
-
-/*
-$fName = $user->data['first'];
-$lName = $user->data['last'];
-$username = $user->data['user'];
-$word = $user->data['word'];
+$fName = $user->first;
+$lName = $user->last;
+$username = $user->username;
+$word = $user->password;
 
 if (!($addUser = $connect->prepare("INSERT INTO credentials(first, last, user, word) VALUES (?, ?, ?, ?)"))) {
   echo "Prep error";
@@ -35,6 +32,6 @@ if (!($addUser->execute())) {
 
 $addUser->close();
 
-*/
+
 
 
