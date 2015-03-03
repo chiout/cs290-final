@@ -11,58 +11,18 @@
 			angular.module("signUpForm", []).controller("signUpFormCtrl", function ($scope, $http) {
 
 				$scope.person = {};
-/*
-				$scope.subForm = function () {
-					$http.post('signUp.php', $scope.person).success(function(data, status) {
-						console.log("Success!");
-					}). error(function(data, status) {
-						console.log("Error sending data");
-					});
+				$scope.notReg = true;
 
-					$http({
-						method :'POST',
-						url : 'accounts.php',
-						data : $.param($scope.person),
-						headers : {'Content-Type' : 'application/x-www-form-urlencoded'}
-					}).success(function(data) {
-						console.log('success!');
-					}).error (function(data) {
-						console.log('error');
-					});
-
-				};*/
+				$scope.submitted = function () {
+					$scope.notReg = false;
+					// this will hide the form once its been submitted and reveal the thank you message
+				}
 
 			});
 		</script>
-		<script>
-			var subForm = function () {
-				document.getElementById("signUp").submit(); //submit the form
-
-				var first = document.getElementById("fName").value;
-				var last = document.getElementById("lName").value;
-				var username = document.getElementById("username").value;
-				var pword = document.getElementById("password").value;
-
-				var ajaxReq = new XMLHttpRequest();
-				var url = "accounts.php";
-				ajaxReq.onreadystatechange = whenReady;
-				ajaxReq.open('POST', url, true);
-				ajaxReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-				function whenReady() {
-					if (ajaxReq.readyState === 4) {
-						if (ajaxReq.status === 200) {
-							console.log("ready!");
-							console.log(ajaxReq.responseText);
-						}
-					} else {
-						console.log("request error");
-					}
-				}
-
-				ajaxReq.send('firstName=' + first+'&lastName=' + last+'&username='+username+'&password='+password);
-			}
-		</script>
+<?php
+require("accounts.php"); // include the code that adds the form elements to the database
+?>
 	</head>
 	<body class="background" ng-app="signUpForm">
 		<div class="header">
@@ -70,34 +30,42 @@
 		</div>
 		<div id="contentBoxSignUp" ng-controller="signUpFormCtrl">
 			<div id="content">
-				<h2>Message Board Sign Up</h2>
-				<p class="message">
-					Please sign up for an account below. 
-					<br> All fields are required; you will not be able to submit the form without filling out all of the fields.
-					<br>
-					<ul class="message">
-						<li>Please keep usernames to a maximum of 8 characters. They must include an alphabet letter.
-						<li>Your password must be between 6-10 characters long.</li>
-						<li>If your text turns red, that means your input is not valid.</li>
-					</ul>
-				</p>
-				<form name="signUp" class="sIForm" id="signUp" method="POST" action="signUp.php" novalidate>
-					<p class="block">
-						<label for="fName" class="sILabel">First Name:</label>
-						<input class="sIField" type="text" id="fName" ng-model="person.first" name="first" required>
-					<p class="block">
-						<label for="lName" class="sILabel">Last Name:</label>
-						<input class="sIField" type="text" id="lName" ng-model="person.last" name="last" required>
-					<p class="block">
-						<label for="username" class="sILabel">Username:</label>
-						<input class="sIField" name="username" type="text" id="username" ng-model="person.username" ng-maxlength="8" ng-pattern="/[a-z]/" required>
-					<p class="block">
-						<label for="password" class="sILabel">Password:</label>
-						<input class="sIField" type="password" name="pword" id="password" ng-model="person.password" ng-minlength="6" ng-maxlength="10" required>
-					<p class="block">
-						<button type="submit" id="signUpButton" ng-disabled="signUp.$invalid" onclick="subForm()">Sign Up</button>
+				<div ng-show="notReg">
+					<h2>Message Board Sign Up</h2>
+					<p class="message">
+						Please sign up for an account below. 
+						<br> All fields are required; you will not be able to submit the form without filling out all of the fields.
+						<br>
+						<ul class="message">
+							<li>Please keep usernames to a maximum of 8 characters. They must include an alphabet letter.
+							<li>Your password must be between 6-10 characters long.</li>
+							<li>If your text turns red, that means your input is not valid.</li>
+						</ul>
 					</p>
-				</form>
+					<form name="signUp" class="sIForm" id="signUp" method="POST" action="signUp.php" novalidate>
+						<p class="block">
+							<label for="fName" class="sILabel">First Name:</label>
+							<input class="sIField" type="text" id="fName" ng-model="person.first" name="first" required>
+						<p class="block">
+							<label for="lName" class="sILabel">Last Name:</label>
+							<input class="sIField" type="text" id="lName" ng-model="person.last" name="last" required>
+						<p class="block">
+							<label for="username" class="sILabel">Username:</label>
+							<input class="sIField" name="username" type="text" id="username" ng-model="person.username" ng-maxlength="8" ng-pattern="/[a-z]/" required>
+						<p class="block">
+							<label for="password" class="sILabel">Password:</label>
+							<input class="sIField" type="password" name="pword" id="password" ng-model="person.password" ng-minlength="6" ng-maxlength="10" required>
+						<p class="block">
+							<button type="submit" id="signUpButton" ng-disabled="signUp.$invalid" ng-click="submitted()">Sign Up</button>
+						</p>
+					</form>
+				</div>
+				<div ng-show="notReg">
+					<h2>Message Board Sign Up</h2>
+					<p class="message">
+						Thank you for registering! Please go back to the <a href="index.html">homepage</a> to sign in!
+					</p>
+				</div>
 			</div>
 		</div>
 	</body>

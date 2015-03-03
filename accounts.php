@@ -7,10 +7,10 @@ if ($connect->connect_errno) {
   echo "Your sign up failed. Please try again.";
 } // this connects to the database
 
-$fName = $_POST['firstName'];
-$lName = $_POST['lastName'];
+$fName = $_POST['first'];
+$lName = $_POST['last'];
 $username = $_POST['username'];
-$word = $_POST['password'];
+$word = $_POST['pword'];
 
 echo $_POST['username'];
 
