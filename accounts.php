@@ -4,7 +4,7 @@ require("../cred.php");
 
 $connect = new mysqli($host, $user, $pd, $db);
 if ($connect->connect_errno) {
-  echo "Connection failed: $connect->connect_errno \n";
+  echo "Your sign up failed. Please try again.";
 } // this connects to the database
 
 $fName = $_POST['firstName'];
@@ -15,17 +15,17 @@ $word = $_POST['password'];
 echo $_POST['username'];
 
 if (!($addUser = $connect->prepare("INSERT INTO credentials(first, last, user, word) VALUES (?, ?, ?, ?)"))) {
-  echo "Prep error";
+  echo "Your sign up failed. Please try again.";
 }
 
 if (!($addUser->bind_param("ssss", $fName, $lName, $username, $word))) {
-  echo "Param error";
+  echo "Your sign up failed. Please try again.";
 }
 
 if (!($addUser->execute())) {
-  echo "Execution error";
+  echo "Your sign up failed. Please try again.";
 } else {
-  echo "Done!";
+  echo "Congratulations, you have signed up! Please sign in to begin posting!";
 }
 
 $addUser->close();

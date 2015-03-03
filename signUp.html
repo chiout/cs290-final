@@ -53,6 +53,7 @@
 					if (ajaxReq.readyState === 4) {
 						if (ajaxReq.status === 200) {
 							console.log("ready!");
+							document.getElementById("successMessage").innerHTML = ajaxReq.responseText;
 							console.log(ajaxReq.responseText);
 						}
 					} else {
@@ -98,6 +99,8 @@
 						<button type="submit" id="signUpButton" ng-disabled="signUp.$invalid" onclick="subForm()">Sign Up</button>
 					</p>
 				</form>
+				<p class="message" id="successMessage">
+				</p>
 			</div>
 		</div>
 	</body>
