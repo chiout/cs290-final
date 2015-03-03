@@ -11,26 +11,30 @@
 			angular.module("signUpForm", []).controller("signUpFormCtrl", function ($scope, $http) {
 
 				$scope.person = {};
-				$scope.notReg = true;
 
-				$scope.submitted = function () {
-					$scope.notReg = false;
+				$scope.notReg = function () {
+					return true;
+				}
+
+				$scope.submitted = function (signUp) {
+					signUp.$setSubmitted();
+					
 					// this will hide the form once its been submitted and reveal the thank you message
 				}
 
 			});
 		</script>
-<?php
-require("accounts.php"); // include the code that adds the form elements to the database
-?>
 	</head>
 	<body class="background" ng-app="signUpForm">
 		<div class="header">
 			<!--navigation goes here -->
 		</div>
 		<div id="contentBoxSignUp" ng-controller="signUpFormCtrl">
+<?php
+require("accounts.php"); // include the code that adds the form elements to the database
+?>
 			<div id="content">
-				<div ng-show="notReg">
+				<div ng-hide="signUp.$submitted">
 					<h2>Message Board Sign Up</h2>
 					<p class="message">
 						Please sign up for an account below. 
@@ -56,11 +60,11 @@ require("accounts.php"); // include the code that adds the form elements to the 
 							<label for="password" class="sILabel">Password:</label>
 							<input class="sIField" type="password" name="pword" id="password" ng-model="person.password" ng-minlength="6" ng-maxlength="10" required>
 						<p class="block">
-							<button type="submit" id="signUpButton" ng-disabled="signUp.$invalid" ng-click="submitted()">Sign Up</button>
+							<button type="submit" id="signUpButton" ng-disabled="signUp.$invalid">Sign Up</button>
 						</p>
 					</form>
 				</div>
-				<div ng-show="notReg">
+				<div ng-show="signUp.$submitted">
 					<h2>Message Board Sign Up</h2>
 					<p class="message">
 						Thank you for registering! Please go back to the <a href="index.html">homepage</a> to sign in!

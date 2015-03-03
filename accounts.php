@@ -12,22 +12,26 @@ $lName = $_POST['last'];
 $username = $_POST['username'];
 $word = $_POST['pword'];
 
-echo $_POST['username'];
+if ($fName) {
 
-if (!($addUser = $connect->prepare("INSERT INTO credentials(first, last, user, word) VALUES (?, ?, ?, ?)"))) {
-  echo "Your sign up failed. Please try again.";
+	if (!($addUser = $connect->prepare("INSERT INTO credentials(first, last, user, word) VALUES (?, ?, ?, ?)"))) {
+	  echo '<div id="content"><p class="message">Your signup failed. Please try again.</p></div>';
+	}
+
+	if (!($addUser->bind_param("ssss", $fName, $lName, $username, $word))) {
+	  echo '<div id="content"><p class="message">Your signup failed. Please try again.</p></div>';
+	}
+
+	if (!($addUser->execute())) {
+	  echo '<div id="content"><p class="message">Your signup was unsuccessful. Please try another username.</p></div>';
+	} else {
+	  echo '<div id="content"><p class="message">Thank you for registering! Please go back to the <a href="index.html">homepage</a> to sign in!</p></div>';
+	}
+
+	$addUser->close();
+
+	$fName = null;
+
 }
-
-if (!($addUser->bind_param("ssss", $fName, $lName, $username, $word))) {
-  echo "Your sign up failed. Please try again.";
-}
-
-if (!($addUser->execute())) {
-  echo "Your sign up failed. Please try again.";
-} else {
-  echo "Congratulations, you have signed up! Please sign in to begin posting!";
-}
-
-$addUser->close();
 
 
