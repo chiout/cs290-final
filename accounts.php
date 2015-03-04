@@ -14,6 +14,8 @@ $lName = $_POST['last'];
 $username = $_POST['username'];
 $word = $_POST['pword'];
 
+$_POST = array(); // clear the post array
+
 if ($fName) {
 
 	$sUClass = '"hidden"';
@@ -27,7 +29,7 @@ if ($fName) {
 	}
 
 	if (!($addUser->execute())) {
-	  echo '<div id="contentBoxSignUp" ng-controller="signUpFormCtrl"><div id="content"><h2>Message Board Sign Up</h2><p class="message">Your signup was unsuccessful. That username is already taken. Please refresh and try again!</p></div></div>';
+	  echo '<div id="contentBoxSignUp" ng-controller="signUpFormCtrl"><div id="content"><h2>Message Board Sign Up</h2><p class="message">Your signup was unsuccessful. That username is already taken. Please try again!</p></div></div>';
 	} else {
 	  echo '<div id="contentBoxSignUp" ng-controller="signUpFormCtrl"><div id="content"><h2>Message Board Sign Up</h2><p class="message">Thank you for registering! Please go back to the <a href="index.html">homepage</a> to sign in!</p></div></div>';
 	}
@@ -35,6 +37,10 @@ if ($fName) {
 	$addUser->close();
 
 	$fName = null;
+	$lName = null;
+	$username = null;
+	$word = null;
+	// resets the variables so it will not keep sensitive data after sign up
 
 }
 

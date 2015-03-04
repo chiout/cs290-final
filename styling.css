@@ -118,3 +118,98 @@ h2 {
 .hidden {
 	display:none;
 }
+
+/* styling for dashboard */
+
+#dashboardBox {
+	background-color: #AEE8E2;
+	border-radius: 1em;
+	height:auto;
+	margin: 0 auto 100px;
+	padding:1em;
+	position:relative;
+	top:100px;
+	width:1000px;
+	z-index:4;
+}
+
+#dashContent {
+	height: auto;
+	margin: 0 auto 0 auto;
+	position:relative;
+	width:90%;
+}
+
+
+#dashBlockTopic {
+	font-family:"Pontano Sans", sans-serif;
+	font-size: 1.7em;
+	margin: auto 0;
+	text-transform: uppercase;
+}
+
+.writerBlock {
+	background-color: #FFEFD1;
+	border-radius: 1em;
+	height:auto;
+	padding:1em 0;
+	margin: 15px 0;
+	width:100%;
+}
+
+.bName {
+	font-family: 'Muli', sans-serif;
+	font-size:1.2em;
+	margin-left:20px;
+	text-transform: uppercase;
+}
+
+.bDate {
+	font-family:"Pontano Sans", sans-serif;
+	font-size:1em;
+	font-weight: 400;
+	margin-bottom:1em;
+	margin-left:20px;
+}
+
+.messageBlock {
+	background-color:#fff;
+	border-radius:1em;
+	height:auto;
+	margin-left:20px;
+	margin-right:20px;
+	padding:1em;
+	width:auto;
+}
+
+#nMessage {
+	height:6em;
+	resize:none; 
+	margin-left:3%;
+	/* found this code here: http://stackoverflow.com/questions/5235142/how-to-disable-resizable-property-of-textarea, user Donut's post, line two of the first code block */
+	width:93%;
+}
+
+#responseBlock {
+	background-color: #E2E2FF;
+	border-radius: 1em;
+	height:auto;
+	padding:1em 0;
+	margin: 15px 0;
+	width:100%;
+}
+
+#postButton {
+	background-color: #A6BFFF;
+	border:none;
+	color:#fff;
+	font-family: 'Muli', sans-serif;
+	font-size:1.3em;
+	letter-spacing: 0.1em;
+	margin-left:3%;
+	margin-top:5px;
+	padding:0.5em;
+	text-transform: uppercase;
+	width:94%;
+}
+
