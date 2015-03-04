@@ -12,16 +12,6 @@
 
 				$scope.person = {};
 
-				$scope.notReg = function () {
-					return true;
-				}
-
-				$scope.submitted = function (signUp) {
-					signUp.$setSubmitted();
-					
-					// this will hide the form once its been submitted and reveal the thank you message
-				}
-
 			});
 		</script>
 	</head>
@@ -29,12 +19,12 @@
 		<div class="header">
 			<!--navigation goes here -->
 		</div>
-		<div id="contentBoxSignUp" ng-controller="signUpFormCtrl">
 <?php
 require("accounts.php"); // include the code that adds the form elements to the database
 ?>
+		<div id="contentBoxSignUp" ng-controller="signUpFormCtrl" class=<?php echo "$sUClass"; ?>>
 			<div id="content">
-				<div ng-hide="signUp.$submitted">
+				<div>
 					<h2>Message Board Sign Up</h2>
 					<p class="message">
 						Please sign up for an account below. 
@@ -63,12 +53,6 @@ require("accounts.php"); // include the code that adds the form elements to the 
 							<button type="submit" id="signUpButton" ng-disabled="signUp.$invalid">Sign Up</button>
 						</p>
 					</form>
-				</div>
-				<div ng-show="signUp.$submitted">
-					<h2>Message Board Sign Up</h2>
-					<p class="message">
-						Thank you for registering! Please go back to the <a href="index.html">homepage</a> to sign in!
-					</p>
 				</div>
 			</div>
 		</div>
