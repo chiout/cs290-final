@@ -25,7 +25,7 @@ function checkLogin () {
 					document.getElementById("errorMessage").className = "block";
 				}
 				else if (checkLogin.responseText=="valid") {
-					window.location='dashboard.html';
+					window.location='dashboard.php';
 				}
 			}
 		}
