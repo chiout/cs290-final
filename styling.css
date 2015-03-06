@@ -215,14 +215,62 @@ h2 {
 
 /* styling for dashboard */
 
-.divBlocks {
+#divBlocks1 {
+	background-color:#FFF3E5;
+	border-radius: 1em;
+	display:block;
+	float:left;
+	height:auto;
+	padding:3%;
+	margin-top: 15px;
+	margin-right: 8%;
+	width:40%;
+}
+
+#divBlocks2 {
 	background-color:#D5FCFF;
 	border-radius: 1em;
 	display:block;
 	float:left;
 	height:auto;
 	padding:3%;
-	margin: 15px 2%;
+	margin-top: 15px;
 	width:40%;
+}
+
+.headings {
+	font-family: 'Muli', sans-serif;
+	font-size:1.2em;
+	margin-left:10px;
+	text-transform: uppercase;
+}
+
+#startField {
+	margin-left:10px;
+	margin-top:10px;
+	height:2em;
+	width:93%;
+}
+
+#list {
+	background-color:#fff;
+	border-radius:1em;
+	margin-left:10px;
+	margin-top:10px;
+	padding:0.5em;
+}
+
+#chooseButton {
+	background-color: #58D665;
+	border:none;
+	color:#fff;
+	font-family: 'Muli', sans-serif;
+	font-size:1.3em;
+	letter-spacing: 0.1em;
+	margin-left:3%;
+	margin-top:10px;
+	padding:0.5em;
+	text-transform: uppercase;
+	width:94%;
 }
 

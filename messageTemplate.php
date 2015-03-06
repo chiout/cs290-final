@@ -15,9 +15,6 @@
 		</script>
 	</head>
 	<body class="background" ng-app="dashboardMod">
-<?php 
-session_start();
-?>
 		<div class="header">
 			<!--navigation goes here -->
 		</div>
@@ -32,7 +29,7 @@ session_start();
 				</span>
 <!--below will be the code for each message -->
 				<div class="writerBlock">
-					<div class="bName"><?php echo $_SESSION['user']; ?></div>
+					<div class="bName"></div>
 					<div class="bDate">Date</div>
 					<div class="messageBlock">
 						message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block 
