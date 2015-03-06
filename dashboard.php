@@ -35,9 +35,9 @@ session_destroy(); // destroy for now
 				<div id="divBlocks1">
 					<div class="headings">Choose an existing topic below:</div>
 					<div id="list">
-						<label for="choice1" class="message"><input type="radio" name="selection" id="choice1"> Topic 1</label>
-					<br>
-						<label for="choice2" class="message"><input type="radio" name="selection" id="choice2"> Topic 2</label>
+<?php
+require('retrieveTopics.php'); //this will retrieve the list of topics as radio buttons
+?>
 						<button id="chooseButton">Go!</button>
 					</div>
 				</div>
