@@ -119,7 +119,7 @@ h2 {
 	display:none;
 }
 
-/* styling for dashboard */
+/* styling for message boards */
 
 #dashboardBox {
 	background-color: #AEE8E2;
@@ -211,5 +211,18 @@ h2 {
 	padding:0.5em;
 	text-transform: uppercase;
 	width:94%;
+}
+
+/* styling for dashboard */
+
+.divBlocks {
+	background-color:#D5FCFF;
+	border-radius: 1em;
+	display:block;
+	float:left;
+	height:auto;
+	padding:3%;
+	margin: 15px 2%;
+	width:40%;
 }
 
