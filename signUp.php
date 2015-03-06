@@ -13,6 +13,32 @@
 
 			});
 		</script>
+		<script>
+			function check () {
+				console.log(document.getElementById("username").value);
+				var userName = escape(document.getElementById("username").value);
+
+				var checkReq = new XMLHttpRequest();
+				var url = "checkUser.php?username="+userName; // send it via a get request
+				checkReq.onreadystatechange = whenReady;
+				checkReq.open('GET', url, true);
+				checkReq.send();
+
+				function whenReady () {
+					if (checkReq.readyState === 4) {
+						if (checkReq.status === 200) {
+							if (checkReq.responseText == "taken") {
+								console.log(checkReq.responseText);
+								document.getElementById("errorMess").className = 'message';
+							} else if (checkReq.responseText == "available") {
+								console.log(checkReq.responseText);
+								document.getElementById("errorMess").className = 'hidden';
+							}
+						}
+					}
+				}
+			}
+		</script>
 	</head>
 	<body class="background" ng-app="signUpForm">
 		<div class="header">
@@ -44,7 +70,8 @@ require("accounts.php"); // include the code that adds the form elements to the 
 							<input class="sIField" type="text" id="lName" ng-model="person.last" name="last" required>
 						<p class="block">
 							<label for="username" class="sILabel">Username:</label>
-							<input class="sIField" name="username" type="text" id="username" ng-model="person.username" ng-maxlength="8" ng-pattern="/[a-z]/" required>
+							<input class="sIField" name="username" type="text" id="username" ng-model="person.username" ng-maxlength="8" ng-pattern="/[a-z]/" onblur="check()" required>
+							<br><div class="hidden" id="errorMess">That username is already taken.</div>
 						<p class="block">
 							<label for="password" class="sILabel">Password:</label>
 							<input class="sIField" type="password" name="pword" id="password" ng-model="person.password" ng-minlength="6" ng-maxlength="10" required>
