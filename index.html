@@ -29,7 +29,7 @@
 						<label for="password" class="sILabel">Password:</label>
 						<input class="sIField" type="password" id="password" ng-model="user.secret" ng-maxlength="10" required>
 					<p class="block">
-						<button type="submit" id="logInButton" onclick="checkLogin()" ng-disabled="signIn.$invalid">Log In</button>
+						<button type="button" id="logInButton" onclick="checkLogin()" ng-disabled="signIn.$invalid">Log In</button>
 						<button type="button" id="signUpButton" onclick="window.location='signUp.php';">Sign Up</button>
 					</p>
 				</form>
