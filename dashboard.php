@@ -1,9 +1,8 @@
 <?php
 session_start();
 
-$username = $_SESSION['user'];
-
-session_destroy(); // destroy for now
+$username = $_SESSION['user']; // continues the session
+// assign php variable to the username
 ?>
 <!DOCTYPE html>
 
@@ -43,8 +42,10 @@ require('retrieveTopics.php'); //this will retrieve the list of topics as radio 
 				</div>
 				<div id="divBlocks2">
 					<div class="headings">Start a topic:</div>
-					<input type="text" id="startField" name="startField">
-					<button id="postButton" onclick="send()">Start It!</button>
+					<form name="newTopicForm" method="POST" action="messageTemplate.php">
+						<input type="text" id="startField" name="startField">
+						<button id="postButton" onclick="send()">Start It!</button>
+					</form>
 				</div>
 			</div>
 		</div>

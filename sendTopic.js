@@ -12,9 +12,12 @@ function send() {
 	function whenReady () {
 		if (sendTopic.readyState == 4) {
 			if (sendTopic.status == 200) {
-				window.location="messageTemplate.php";
+				//window.location="messageTemplate.php";
+				console.log("ready");
 			}
 		}
 	}
+	// this function will send the topic name and username to the database through the sendTopic.php file
+	// this ajax call will work in the background
 
 }

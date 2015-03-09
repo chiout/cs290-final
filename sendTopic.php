@@ -3,6 +3,8 @@
 // this page will send the topic name to the database
 
 $tName = $_GET['name'];
+$tName = strtolower($tName);
+$tName = ucfirst($tName);
 
 $username = $_GET['user'];
 
@@ -26,3 +28,5 @@ if (!($sendTopic->execute())) {
 }
 
 $sendTopic->close();
+
+// responds to the AJAX call and sends the topic information to the database
