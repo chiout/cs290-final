@@ -1,5 +1,26 @@
 <?php
 session_start();
+$filePath = explode('/', $_SERVER['PHP_SELF'],-1);
+$filePath = implode('/', $filePath);
+$redirect = "http://".$_SERVER['HTTP_HOST'].$filePath;
+/*
+The three lines of code above are taken from the "PHP Sessions" video for this class
+They are from lines 10-12 in the video
+*/
+$home = $redirect."/index.html";
+if ((isset($_GET['logout'])) && ($_GET['logout']==1)) {
+  $_SESSION = array();
+  session_destroy();
+  header("Location: $home", true);
+  die();
+}
+/*
+destroys session if the GET 'logout' key is given a value of 1
+this if block uses the code from lines 8, 9, 13, and 14 from the "PHP Sessions" video
+there are some slight modifications I made from the video's code
+all code used to end the session in this program uses code from lines 8-9, 14 from the video-
+such as the if statement below that checks if $_POST['username'] is an empty string
+*/
 
 $username = $_SESSION['user']; // continues the session
 // assign php variable to the username
@@ -22,7 +43,12 @@ $username = $_SESSION['user']; // continues the session
 	</head>
 	<body class="background">
 		<div class="header">
-			<!--navigation goes here -->
+			<div class="nav">
+				<a href="dashboard.php?logout=1">Logout</a>
+			</div>
+			<div class="nav">
+				<?php echo $username; ?>
+			</div>
 		</div>
 		<div id="dashboardBox">
 			<div id="dashContent" style="overflow:hidden">
@@ -42,7 +68,7 @@ require('retrieveTopics.php'); //this will retrieve the list of topics as radio 
 				</div>
 				<div id="divBlocks2">
 					<div class="headings">Start a topic:</div>
-					<form name="newTopicForm" method="POST" action="messageTemplate.php">
+					<form name="newTopicForm" method="POST" action="message.php">
 						<input type="text" id="startField" name="startField">
 						<button id="postButton" onclick="send()">Start It!</button>
 					</form>

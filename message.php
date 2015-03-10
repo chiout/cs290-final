@@ -1,12 +1,23 @@
 <?php
 session_start();
-
+$filePath = explode('/', $_SERVER['PHP_SELF'],-1);
+$filePath = implode('/', $filePath);
+$redirect = "http://".$_SERVER['HTTP_HOST'].$filePath;
+/*
+The three lines of code above are taken from the "PHP Sessions" video for this class
+They are from lines 10-12 in the video
+*/
+$home = $redirect."/index.html";
+if ((isset($_GET['logout'])) && ($_GET['logout']==1)) {
+  $_SESSION = array();
+  session_destroy();
+  header("Location: $home", true);
+  die();
+}
 if (!isset($_SESSION['newTopic'])) {
 	$_SESSION['newTopic'] = $_POST['startField'];
-	$user = $_SESSION['user'];
-	$topicName = $_SESSION['newTopic'];
 }
-
+require ("getInfo.php");
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +36,12 @@ if (!isset($_SESSION['newTopic'])) {
 	</head>
 	<body class="background">
 		<div class="header">
-			<!--navigation goes here -->
+			<div class="nav">
+				<a href="dashboard.php?logout=1">Logout</a>
+			</div>
+			<div class="nav">
+				<?php echo $_SESSION['user']; ?>
+			</div>
 		</div>
 		<div id="dashboardBox">
 			<div id="dashContent">
@@ -34,7 +50,7 @@ if (!isset($_SESSION['newTopic'])) {
 					<div id="dashBlockTopic"><?php echo $topicName; ?></div>
 				</span>
 				<span class="message">
-					<?php echo "Started by $user"; ?>
+					<?php echo "Started by ".$topicAuth; ?>
 				</span>
 <!--below will be the code for each message -->
 				<div class="writerBlock">
