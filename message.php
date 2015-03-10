@@ -29,7 +29,7 @@ require ("getInfo.php");
 		<LINK type="text/css" rel="stylesheet" href="styling.css">
 		<script src="submitMessage.js"></script>
 		<script>
-			var author = <?php echo json_encode($topicAuth); ?>;
+			var author = <?php echo json_encode($_SESSION['user']); ?>;
 			var topicId = <?php echo json_encode($id); ?>;
 			// console.log(topicN);
 			// this gets the values from the PHP variables which fetched the data from the topics table

@@ -39,7 +39,7 @@ if ($number > 0) {
  	  echo 'Error retrieving messages1';
 	} // this connects to the database
 
-	if (!($retMess = $connect->prepare("SELECT author, message FROM messages WHERE topic=(?)"))) {
+	if (!($retMess = $connect->prepare("SELECT author, message, dates FROM messages WHERE topic=(?)"))) {
 	  echo 'Error retrieving messages5';
 	}
 
@@ -51,12 +51,12 @@ if ($number > 0) {
 	  echo 'Error retrieving messages6';
 	}
 
-    if (!($retMess->bind_result($mAuthor, $printMess))) {
+    if (!($retMess->bind_result($mAuthor, $printMess, $mDate))) {
       echo "Error retrieving messages7";
     }
 
     while ($retMess->fetch()) {
-    	echo "<div class=\"writerBlock\"><div class=\"bName\">$mAuthor</div><div class=\"messageBlock\">$printMess</div></div>";
+    	echo "<div class=\"writerBlock\"><div class=\"bName\">$mAuthor</div><div class=\"bDate\">$mDate</div><div class=\"messageBlock\">$printMess</div></div>";
     } // this prints out the message
 
     $retMess->close();
