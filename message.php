@@ -14,9 +14,9 @@ if ((isset($_GET['logout'])) && ($_GET['logout']==1)) {
   header("Location: $home", true);
   die();
 }
-if (!isset($_SESSION['newTopic'])) {
+/*if (!isset($_SESSION['newTopic'])) {
 	$_SESSION['newTopic'] = $_POST['startField'];
-}
+}*/
 require ("getInfo.php");
 ?>
 
@@ -28,10 +28,15 @@ require ("getInfo.php");
 		<link href='http://fonts.googleapis.com/css?family=Muli:300,400|Roboto:400,300,700,900,500|Pontano+Sans' rel='stylesheet' type='text/css'>
 		<LINK type="text/css" rel="stylesheet" href="styling.css">
 		<script src="submitMessage.js"></script>
-		<scipt>
-			var author = <?php echo json_encode($_SESSION['user']); ?>;
-			var topicN = <?php echo json_encode($_SESSION['newTopic']); ?>;
-			console.log(topicN);
+		<script>
+			var author = <?php echo json_encode($topicAuth); ?>;
+			var topicId = <?php echo json_encode($id); ?>;
+			// console.log(topicN);
+			// this gets the values from the PHP variables which fetched the data from the topics table
+
+			function show() {
+				console.log(document.getElementById("nMessage").value);
+		    }
 		</script>
 	</head>
 	<body class="background">
@@ -53,18 +58,22 @@ require ("getInfo.php");
 					<?php echo "Started by ".$topicAuth; ?>
 				</span>
 <!--below will be the code for each message -->
-				<div class="writerBlock">
-					<div class="bName"></div>
+<?php
+require ("getMessages.php");
+?>
+				<!--<div class="writerBlock">
+
+					<div class="bName">Name</div>
 					<div class="bDate">Date</div>
 					<div class="messageBlock">
 						message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block 
 					</div>
-				</div>
+				</div>-->
 <!--below is the code for the form-->
 				<div id="responseBlock">
 					<div class="bDate">When posting, please do not spam the forum and please keep language appropriate for all audiences. Happy discussing!</div>
 					<form name="addMessage">
-						<textarea name="newMessage" id="nMessage"></textarea>
+						<textarea name="newMessage" id="nMessage" onblur="show()"></textarea>
 						<button id="postButton" onclick="submitMessage()">Post</button>
 					</form>
 				</div>

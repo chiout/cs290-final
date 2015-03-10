@@ -1,10 +1,10 @@
 <?php
 
-// this page will send the message to the database
+// this page will send the message to the database along with the topic ID
 session_start();
 
 $message= $_GET['mess'];
-$topicName = $_GET['top'];
+$topicId = $_GET['top'];
 $author = $_GET['auth'];
 
 require("../cred.php");
@@ -18,7 +18,7 @@ if (!($sendMess = $connect->prepare("INSERT INTO messages(topic, author, message
   echo 'Error adding message';
 }
 
-if (!($sendMess->bind_param("sss", $topicName, $author, $message))) {
+if (!($sendMess->bind_param("sss", $topicId, $author, $message))) {
   echo 'Error adding message';
 }
 

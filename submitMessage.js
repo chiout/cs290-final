@@ -3,7 +3,7 @@ function submitMessage() {
 	var topicBlurb = escape(document.getElementById("nMessage").value);
 
 	var sendMessage = new XMLHttpRequest();
-	var url = "submitMessage.php?auth="+author+"&top="+topicN+"&mess=" + topicBlurb;
+	var url = "submitMessage.php?auth="+author+"&top="+topicId+"&mess=" + topicBlurb;
 
 	sendMessage.onreadystatechange = whenReady;
 	sendMessage.open("GET", url, true);
