@@ -17,7 +17,7 @@ if ((isset($_GET['logout'])) && ($_GET['logout']==1)) {
 /*if (!isset($_SESSION['newTopic'])) {
 	$_SESSION['newTopic'] = $_POST['startField'];
 }*/
-require ("getInfo.php");
+require ("php/getInfo.php");
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +26,8 @@ require ("getInfo.php");
 	<head>
 		<meta charset="UTF-8">
 		<link href='http://fonts.googleapis.com/css?family=Muli:300,400|Roboto:400,300,700,900,500|Pontano+Sans' rel='stylesheet' type='text/css'>
-		<LINK type="text/css" rel="stylesheet" href="styling.css">
-		<script src="submitMessage.js"></script>
+		<LINK type="text/css" rel="stylesheet" href="css/styling.css">
+		<script src="js/submitMessage.js"></script>
 		<script>
 			var author = <?php echo json_encode($_SESSION['user']); ?>;
 			var topicId = <?php echo json_encode($id); ?>;
@@ -59,16 +59,8 @@ require ("getInfo.php");
 				</span>
 <!--below will be the code for each message -->
 <?php
-require ("getMessages.php");
+require ("php/getMessages.php");
 ?>
-				<!--<div class="writerBlock">
-
-					<div class="bName">Name</div>
-					<div class="bDate">Date</div>
-					<div class="messageBlock">
-						message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block message block 
-					</div>
-				</div>-->
 <!--below is the code for the form-->
 				<div id="responseBlock">
 					<div class="bDate">When posting, please do not spam the forum and please keep language appropriate for all audiences. Happy discussing!</div>

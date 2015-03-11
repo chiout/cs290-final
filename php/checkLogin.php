@@ -3,7 +3,7 @@
 $uWord = $_GET['user'];
 $pWord = $_GET['value'];
 
-require("../cred.php");
+require("../../cred.php");
 
 $connect = new mysqli($host, $user, $pd, $db);
 if ($connect->connect_errno) {

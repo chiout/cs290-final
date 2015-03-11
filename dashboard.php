@@ -31,8 +31,8 @@ $username = $_SESSION['user']; // continues the session
 	<head>
 		<meta charset="UTF-8">
 		<link href='http://fonts.googleapis.com/css?family=Muli:300,400|Roboto:400,300,700,900,500|Pontano+Sans' rel='stylesheet' type='text/css'>
-		<LINK type="text/css" rel="stylesheet" href="styling.css">
-		<script src="sendTopic.js"></script>
+		<LINK type="text/css" rel="stylesheet" href="css/styling.css">
+		<script src="js/sendTopic.js"></script>
 		<script>
 			var user = <?php echo json_encode($username); ?>;
 			/* got this code from http://stackoverflow.com/questions/18520247/cant-pass-php-session-variable-to-javascript-string-variable
@@ -62,7 +62,7 @@ $username = $_SESSION['user']; // continues the session
 					<form name="topicList" method="GET" action="message.php">
 						<div id="list">
 <?php
-require('retrieveTopics.php'); //this will retrieve the list of topics as radio buttons
+require('php/retrieveTopics.php'); //this will retrieve the list of topics as radio buttons
 ?>
 							<button id="chooseButton">Go!</button>
 						</div>

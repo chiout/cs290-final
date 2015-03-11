@@ -8,7 +8,7 @@ $tName = ucfirst($tName);
 
 $username = $_GET['user'];
 
-require("../cred.php");
+require("../../cred.php");
 
 $connect = new mysqli($host, $user, $pd, $db);
 if ($connect->connect_errno) {

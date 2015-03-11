@@ -13,7 +13,7 @@ function checkLogin () {
 */
 
 	var checkLogin = new XMLHttpRequest();
-	var url = "checkLogin.php?user=" + userName + "&value=" + secret; // send it via a get request
+	var url = "php/checkLogin.php?user=" + userName + "&value=" + secret; // send it via a get request
 	checkLogin.onreadystatechange = whenitsReady;
 	checkLogin.open('GET', url, true);
   checkLogin.send();	

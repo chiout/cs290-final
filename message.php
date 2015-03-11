@@ -26,7 +26,7 @@ if(isset($_GET['selection'])) {
 
 $id = $_SESSION['sel'];
 
-require ("getExistingInfo.php"); // pull information based on the topic ID
+require ("php/getExistingInfo.php"); // pull information based on the topic ID
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +35,8 @@ require ("getExistingInfo.php"); // pull information based on the topic ID
 	<head>
 		<meta charset="UTF-8">
 		<link href='http://fonts.googleapis.com/css?family=Muli:300,400|Roboto:400,300,700,900,500|Pontano+Sans' rel='stylesheet' type='text/css'>
-		<LINK type="text/css" rel="stylesheet" href="styling.css">
-		<script src="submitMessage.js"></script>
+		<LINK type="text/css" rel="stylesheet" href="css/styling.css">
+		<script src="js/submitMessage.js"></script>
 		<script>
 			var author = <?php echo json_encode($_SESSION['user']); ?>;
 			var topicId = <?php echo json_encode($id); ?>;
@@ -68,7 +68,7 @@ require ("getExistingInfo.php"); // pull information based on the topic ID
 				</span>
 <!--below will be the code for each message -->
 <?php
-require ("getMessages.php");
+require ("php/getMessages.php");
 ?>
 				<!--<div class="writerBlock">
 

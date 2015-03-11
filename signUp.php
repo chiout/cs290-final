@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Muli:300,400|Roboto:400,300,700,900,500|Pontano+Sans' rel='stylesheet' type='text/css'>
-		<LINK type="text/css" rel="stylesheet" href="styling.css">
+		<LINK type="text/css" rel="stylesheet" href="css/styling.css">
 		<script>
 			angular.module("signUpForm", []).controller("signUpFormCtrl", function ($scope, $http) {
 
@@ -19,7 +19,7 @@
 				var userName = escape(document.getElementById("username").value);
 
 				var checkReq = new XMLHttpRequest();
-				var url = "checkUser.php?username="+userName; // send it via a get request
+				var url = "php/checkUser.php?username="+userName; // send it via a get request
 				checkReq.onreadystatechange = whenReady;
 				checkReq.open('GET', url, true);
 				checkReq.send();
@@ -45,7 +45,7 @@
 			<!--navigation goes here -->
 		</div>
 <?php
-require("accounts.php"); // include the code that adds the form elements to the database
+require("php/accounts.php"); // include the code that adds the form elements to the database
 ?>
 		<div id="contentBoxSignUp" ng-controller="signUpFormCtrl" class=<?php echo "$sUClass"; ?>>
 			<div id="content">

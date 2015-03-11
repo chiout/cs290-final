@@ -7,7 +7,7 @@ $message= $_GET['mess'];
 $topicId = $_GET['top'];
 $author = $_GET['auth'];
 
-require("../cred.php");
+require("../../cred.php");
 
 $connect = new mysqli($host, $user, $pd, $db);
 if ($connect->connect_errno) {

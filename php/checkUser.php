@@ -1,6 +1,6 @@
 <?php
 
-require("../cred.php");
+require("../../cred.php");
 
 $username = $_GET['username'];
 $usernameExists = null;
