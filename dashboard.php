@@ -47,7 +47,7 @@ $username = $_SESSION['user']; // continues the session
 				<a href="dashboard.php?logout=1">Logout</a>
 			</div>
 			<div class="nav">
-				<?php echo $username; ?>
+				Welcome <?php echo $username; ?>
 			</div>
 		</div>
 		<div id="dashboardBox">
@@ -68,7 +68,7 @@ require('retrieveTopics.php'); //this will retrieve the list of topics as radio 
 				</div>
 				<div id="divBlocks2">
 					<div class="headings">Start a topic:</div>
-					<form name="newTopicForm" method="POST" action="message.php">
+					<form name="newTopicForm" method="POST" action="newMessage.php">
 						<input type="text" id="startField" name="startField">
 						<button id="postButton" onclick="send()">Start It!</button>
 					</form>

@@ -14,9 +14,19 @@
 }
 
 .nav {
+	font-family: 'Roboto', sans-serif;
 	color:#fff;
+	font-weight:400;
+	float:right;
 	height:auto;
-	margin:20px;
+	margin:17px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.nav a, .nav a:visited {
+	text-decoration: none;
+	color: #fff;
 }
 
 /* styling for content box*/
