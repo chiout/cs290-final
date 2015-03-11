@@ -17,7 +17,16 @@ if ((isset($_GET['logout'])) && ($_GET['logout']==1)) {
 /*if (!isset($_SESSION['newTopic'])) {
 	$_SESSION['newTopic'] = $_POST['startField'];
 }*/
-require ("getInfo.php");
+
+if(isset($_GET['selection'])) {
+	$_SESSION['sel'] = $_GET['selection'];
+}
+// if GET gets a new input, then $_SESSION['sel'] is set equal to the new value
+// otherwise when the messages page gets a refresh, it keeps the same topic page
+
+$id = $_SESSION['sel'];
+
+require ("getExistingInfo.php"); // pull information based on the topic ID
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +54,7 @@ require ("getInfo.php");
 				<a href="dashboard.php?logout=1">Logout</a>
 			</div>
 			<div class="nav">
-				<?php echo $_SESSION['user']; ?>
+				Welcome <?php echo $_SESSION['user']; ?>
 			</div>
 		</div>
 		<div id="dashboardBox">

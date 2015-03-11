@@ -59,12 +59,14 @@ $username = $_SESSION['user']; // continues the session
 				</div>
 				<div id="divBlocks1">
 					<div class="headings">Choose an existing topic below:</div>
-					<div id="list">
+					<form name="topicList" method="GET" action="message.php">
+						<div id="list">
 <?php
 require('retrieveTopics.php'); //this will retrieve the list of topics as radio buttons
 ?>
-						<button id="chooseButton">Go!</button>
-					</div>
+							<button id="chooseButton">Go!</button>
+						</div>
+					</form>
 				</div>
 				<div id="divBlocks2">
 					<div class="headings">Start a topic:</div>
