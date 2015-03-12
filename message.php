@@ -51,7 +51,13 @@ require ("php/getExistingInfo.php"); // pull information based on the topic ID
 	<body class="background">
 		<div class="header">
 			<div class="nav">
-				<a href="dashboard.php?logout=1">Logout</a>
+				<a href="message.php?logout=1">Logout</a>
+			</div>
+			<div class="nav">
+				<a href="editProfile.php">Profile</a>
+			</div>
+			<div class="nav">
+				<a href="dashboard.php">Dashboard</a>
 			</div>
 			<div class="nav">
 				Welcome <?php echo $_SESSION['user']; ?>

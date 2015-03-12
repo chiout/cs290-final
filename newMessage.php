@@ -42,7 +42,13 @@ require ("php/getInfo.php");
 	<body class="background">
 		<div class="header">
 			<div class="nav">
-				<a href="dashboard.php?logout=1">Logout</a>
+				<a href="newMessage.php?logout=1">Logout</a>
+			</div>
+			<div class="nav">
+				<a href="editProfile.php">Profile</a>
+			</div>
+			<div class="nav">
+				<a href="dashboard.php">Dashboard</a>
 			</div>
 			<div class="nav">
 				Welcome <?php echo $_SESSION['user']; ?>

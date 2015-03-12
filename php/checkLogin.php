@@ -29,6 +29,7 @@ $entries = $checkLog->num_rows;
 if ($entries > 0) {
 	echo "valid";
 	session_start(); // this will begin the session
+	$uWord = strtolower($uWord);
 	$_SESSION['user'] = $uWord;
 }
 

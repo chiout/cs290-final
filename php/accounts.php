@@ -13,6 +13,7 @@ $fName = $_POST['first'];
 $lName = $_POST['last'];
 $username = $_POST['username'];
 $word = $_POST['pword'];
+$username = strtolower($username);
 
 $_POST = array(); // clear the post array
 

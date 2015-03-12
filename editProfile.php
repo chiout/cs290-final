@@ -24,15 +24,16 @@ such as the if statement below that checks if $_POST['username'] is an empty str
 
 $username = $_SESSION['user']; // continues the session
 // assign php variable to the username
+
+require('php/addUserInfo.php'); // this will add user info to the database once the form is filled out
 ?>
 <!DOCTYPE html>
-
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<link href='http://fonts.googleapis.com/css?family=Muli:300,400|Roboto:400,300,700,900,500|Pontano+Sans' rel='stylesheet' type='text/css'>
 		<LINK type="text/css" rel="stylesheet" href="css/styling.css">
-		<script src="js/sendTopic.js"></script>
+		<script src="sendTopic.js"></script>
 		<script>
 			var user = <?php echo json_encode($username); ?>;
 			/* got this code from http://stackoverflow.com/questions/18520247/cant-pass-php-session-variable-to-javascript-string-variable
@@ -44,7 +45,7 @@ $username = $_SESSION['user']; // continues the session
 	<body class="background">
 		<div class="header">
 			<div class="nav">
-				<a href="dashboard.php?logout=1">Logout</a>
+				<a href="editProfile.php?logout=1">Logout</a>
 			</div>
 			<div class="nav">
 				<a href="editProfile.php">Profile</a>
@@ -56,32 +57,27 @@ $username = $_SESSION['user']; // continues the session
 				Welcome <?php echo $username; ?>
 			</div>
 		</div>
-		<div id="dashboardBox">
+		<div id="profileBox">
 			<div id="dashContent" style="overflow:hidden">
 				<!-- found this code here: http://stackoverflow.com/questions/1844207/how-to-make-a-div-to-wrap-two-float-divs-inside, Mikael S's code, line 1-->
-				<h2>Message Board Dashboard</h2>
+				<h2>Your Information</h2>
 				<div class="message">
-					Please either choose an existing forum or start your own topic!
+					Below is the contact information we have for you. To add/edit your age and biography, please fill out the form below.
 				</div>
-				<div id="divBlocks1">
-					<div class="headings">Choose an existing topic below:</div>
-					<form name="topicList" method="GET" action="message.php">
-						<div id="list">
 <?php
-require('php/retrieveTopics.php'); //this will retrieve the list of topics as radio buttons
+require('php/getUserData.php'); // this will fetch the signed in user's data
 ?>
-							<button id="chooseButton">Go!</button>
-						</div>
-					</form>
-				</div>
-				<div id="divBlocks2">
-					<div class="headings">Start a topic:</div>
-					<form name="newTopicForm" method="POST" action="newMessage.php">
-						<input type="text" id="startField" name="startField">
-						<button id="postButton" onclick="send()">Start It!</button>
-					</form>
-				</div>
-			</div>
+				<hr>
+				<form name="addInfoForm" method="POST" action="editProfile.php">
+					<p class="block">
+						<label for="age" class="sILabel">Age:</label>
+						<input class="sIField" type="number" id="age" name="age">
+					<p class="block">
+						<label for="bio" class="sILabel">Bio:</label>
+						<textarea class="sIField" id="bio" name="bio"></textarea>
+					<button type="submit" id="editButton">Add Information</button>
+				</form>
+				<!-- decided not to use AJAX since this should require a page refresh so users can see that something has happened -->
 		</div>
 	</body>
 </html>
