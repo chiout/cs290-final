@@ -290,3 +290,17 @@ h2 {
 	width:94%;
 }
 
+/* styling for profile page */
+
+#profileBox {
+	background-color: #AEE8E2;
+	border-radius: 1em;
+	height:auto;
+	margin: 0 auto 100px;
+	padding:1em;
+	position:relative;
+	top:100px;
+	width:500px;
+	z-index:4;
+}
+
