@@ -25,7 +25,6 @@ such as the if statement below that checks if $_POST['username'] is an empty str
 $username = $_SESSION['user']; // continues the session
 // assign php variable to the username
 
-require('php/addUserInfo.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,24 +51,9 @@ require('php/addUserInfo.php');
 		<div id="profileBox">
 			<div id="dashContent" style="overflow:hidden">
 				<!-- found this code here: http://stackoverflow.com/questions/1844207/how-to-make-a-div-to-wrap-two-float-divs-inside, Mikael S's code, line 1-->
-				<h2>Your Information</h2>
-				<p class="message">
-					Below is the account information we have for you. To add/edit your age and biography, please fill out the form below.
-				</p>
 <?php
-require('php/getUserData.php');
-?>
-				<hr>
-				<form method="POST" action="editProfile.php">
-					<p class="block">
-						<label for="age" class="sILabel">Age:</label>
-						<input class="sIField" type="number" id="age" name="age">
-					<p class="block">
-						<label for="bio" class="sILabel">Bio:</label>
-						<textarea class="sIField" id="bio" name="bio"></textarea>
-					<button id="editButton">Add Information</button>
-				</form>
-				<!-- a page refresh is good for this so we did not use Ajax -->
+require('php/fetchUser.php');
+?>				
 		</div>
 	</body>
 </html>

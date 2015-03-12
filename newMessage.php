@@ -61,7 +61,7 @@ require ("php/getInfo.php");
 					<div id="dashBlockTopic"><?php echo $topicName; ?></div>
 				</span>
 				<span class="message">
-					<?php echo "Started by ".$topicAuth; ?>
+					<?php echo "Started by <a href=\"user.php?user=$topicAuth\">$topicAuth</a>" ?>
 				</span>
 <!--below will be the code for each message -->
 <?php

@@ -56,7 +56,7 @@ if ($number > 0) {
     }
 
     while ($retMess->fetch()) {
-    	echo "<div class=\"writerBlock\"><div class=\"bName\">$mAuthor</div><div class=\"bDate\">$mDate</div><div class=\"messageBlock\">$printMess</div></div>";
+    	echo "<div class=\"writerBlock\"><div class=\"bName\"><a href=\"user.php?user=$mAuthor\">$mAuthor</a></div><div class=\"bDate\">$mDate</div><div class=\"messageBlock\">$printMess</div></div>";
     } // this prints out the message
 
     $retMess->close();

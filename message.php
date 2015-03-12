@@ -70,8 +70,8 @@ require ("php/getExistingInfo.php"); // pull information based on the topic ID
 					<div id="dashBlockTopic"><?php echo $topicName; ?></div>
 				</span>
 				<span class="message">
-					<?php echo "Started by ".$topicAuth; ?>
-				</span>
+					<?php echo "Started by <a href=\"user.php?user=$topicAuth\">$topicAuth</a>" ?>
+				</span> <!-- now users can look up other users by clicking on their username -->
 <!--below will be the code for each message -->
 <?php
 require ("php/getMessages.php");

@@ -119,6 +119,12 @@ h2 {
 	font-family:"Pontano Sans", sans-serif;
 }
 
+.message a, .message a:hover, .message a:visited {
+	color: #D16F6D;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
 #fName.ng-invalid {
 	color:red;
 }
@@ -178,6 +184,11 @@ h2 {
 	font-size:1.2em;
 	margin-left:20px;
 	text-transform: uppercase;
+}
+
+.bName a, .bName a:hover, .bName a:visited {
+	color: #FF6A67;
+	text-decoration: none;
 }
 
 .bDate {
@@ -290,7 +301,7 @@ h2 {
 	width:94%;
 }
 
-/* styling for profile page */
+/* styling for profile pages */
 
 #profileBox {
 	background-color: #FFDFD7;
@@ -336,4 +347,10 @@ h2 {
 
 hr {
 	margin: 30px 0;
+}
+
+h3 {
+	font-family:"Pontano Sans", sans-serif;
+	font-size:1.3em;
+	text-align:center;
 }

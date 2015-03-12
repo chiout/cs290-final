@@ -12,7 +12,7 @@ function submitMessage() {
 	function whenReady () {
 		if (sendMessage.readyState == 4) {
 			if (sendMessage.status == 200) {
-				console.log("ready");
+				location.reload(); // reload the page after the info is sent to database
 			}
 		}
 	}

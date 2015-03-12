@@ -5,9 +5,9 @@
 require("../cred.php");
 
 if (isset($_POST['age']) || isset($_POST['bio'])) {
+
 	$nAge = $_POST['age'];
 	$nBio = $_POST['bio'];
-
 
 	$connect = new mysqli($host, $user, $pd, $db);
 	if ($connect->connect_errno) {
@@ -26,9 +26,10 @@ if (isset($_POST['age']) || isset($_POST['bio'])) {
 	  echo 'Error updating user info4';
 	}
 
-	$retUser->close();
+	$addUserInfo->close();
 
 }
+
 
 // once the post request is submitted, then the age and bio are added to the database
 
