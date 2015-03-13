@@ -7,7 +7,7 @@ $redirect = "http://".$_SERVER['HTTP_HOST'].$filePath;
 The three lines of code above are taken from the "PHP Sessions" video for this class
 They are from lines 10-12 in the video
 */
-$home = $redirect."/index.html";
+$home = $redirect."/index.php";
 if ((isset($_GET['logout'])) && ($_GET['logout']==1)) {
   $_SESSION = array();
   session_destroy();
@@ -21,6 +21,12 @@ there are some slight modifications I made from the video's code
 all code used to end the session in this program uses code from lines 8-9, 14 from the video-
 such as the if statement below that checks if $_POST['username'] is an empty string
 */
+
+if (!isset($_SESSION['user'])) {
+	session_destroy();
+  	header("Location: $home", true);
+  	die();
+} // if user is not logged in, then this will redirect back to the login page
 
 $username = $_SESSION['user']; // continues the session
 // assign php variable to the username

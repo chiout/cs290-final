@@ -32,7 +32,7 @@ if ($fName) {
 	if (!($addUser->execute())) {
 	  echo '<div id="contentBoxSignUp" ng-controller="signUpFormCtrl"><div id="content"><h2>Message Board Sign Up</h2><p class="message">Your signup was unsuccessful. That username is already taken. Please try again!</p></div></div>';
 	} else {
-	  echo '<div id="contentBoxSignUp" ng-controller="signUpFormCtrl"><div id="content"><h2>Message Board Sign Up</h2><p class="message">Thank you for registering! Please go back to the <a href="index.html">homepage</a> to sign in!</p></div></div>';
+	  echo '<div id="contentBoxSignUp" ng-controller="signUpFormCtrl"><div id="content"><h2>Message Board Sign Up</h2><p class="message">Thank you for registering! Please go back to the <a href="index.php">homepage</a> to sign in!</p></div></div>';
 	}
 
 	$addUser->close();

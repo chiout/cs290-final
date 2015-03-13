@@ -7,7 +7,7 @@ $redirect = "http://".$_SERVER['HTTP_HOST'].$filePath;
 The three lines of code above are taken from the "PHP Sessions" video for this class
 They are from lines 10-12 in the video
 */
-$home = $redirect."/index.html";
+$home = $redirect."/index.php";
 if ((isset($_GET['logout'])) && ($_GET['logout']==1)) {
   $_SESSION = array();
   session_destroy();
@@ -17,6 +17,12 @@ if ((isset($_GET['logout'])) && ($_GET['logout']==1)) {
 /*if (!isset($_SESSION['newTopic'])) {
 	$_SESSION['newTopic'] = $_POST['startField'];
 }*/
+
+if (!isset($_SESSION['user'])) {
+	session_destroy();
+  	header("Location: $home", true);
+  	die();
+} // if user is not logged in, then this will redirect back to the login page
 
 if(isset($_GET['selection'])) {
 	$_SESSION['sel'] = $_GET['selection'];

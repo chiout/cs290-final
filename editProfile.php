@@ -7,7 +7,7 @@ $redirect = "http://".$_SERVER['HTTP_HOST'].$filePath;
 The three lines of code above are taken from the "PHP Sessions" video for this class
 They are from lines 10-12 in the video
 */
-$home = $redirect."/index.html";
+$home = $redirect."/index.php";
 if ((isset($_GET['logout'])) && ($_GET['logout']==1)) {
   $_SESSION = array();
   session_destroy();
@@ -21,6 +21,12 @@ there are some slight modifications I made from the video's code
 all code used to end the session in this program uses code from lines 8-9, 14 from the video-
 such as the if statement below that checks if $_POST['username'] is an empty string
 */
+
+if (!isset($_SESSION['user'])) {
+	session_destroy();
+  	header("Location: $home", true);
+  	die();
+} // if user is not logged in, then this will redirect back to the login page
 
 $username = $_SESSION['user']; // continues the session
 // assign php variable to the username
@@ -70,6 +76,27 @@ require('php/getUserData.php');
 					<button id="editButton">Add Information</button>
 				</form>
 				<!-- a page refresh is good for this so we did not use Ajax -->
+				<hr>
+				<p id="pName">Upload a profile pic/icon</p>
+				<p>
+					<ul class="message">
+					<li>Please keep the file size less than 160kb. It is advisable to keep your image under 200x200 pixels. 
+					<li>Only PNG file types are allowed.
+					<li>All images will appear resized to 50x50 px.
+					<li>Uploading a new picture will override the old one.</li>
+					<li>If you do not upload a picture, your default profile picture is below:</li>
+					</ul>
+					<img style="width:50px; height:50px;" src="../img/default.png" alt="default icon">
+				</p>
+				<form method="POST" enctype="multipart/form-data" action="editProfile.php">
+					<input type="file" name="profPic">
+					<!--<input type="submit" name="sub" value="Submit">-->
+					<button type="submit" id="editButton">Upload</button>
+				</form>
+				<!-- based this code off lines 1-4 of the HTML code found on http://codular.com/php-file-uploads-->
+<?php
+require('php/imgUpload.php'); // this will handle the image uploads
+?>
 		</div>
 	</body>
 </html>

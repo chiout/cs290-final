@@ -354,3 +354,8 @@ h3 {
 	font-size:1.3em;
 	text-align:center;
 }
+
+.sideBySide {
+	float:left;
+	display:block;
+}

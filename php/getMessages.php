@@ -56,7 +56,17 @@ if ($number > 0) {
     }
 
     while ($retMess->fetch()) {
-    	echo "<div class=\"writerBlock\"><div class=\"bName\"><a href=\"user.php?user=$mAuthor\">$mAuthor</a></div><div class=\"bDate\">$mDate</div><div class=\"messageBlock\">$printMess</div></div>";
+
+      if (file_exists("../img/$mAuthor")){
+        echo "<div class=\"writerBlock\"><img style=\"height:50px; width:50px; margin-bottom:10px; margin-right:5px; float:left; margin-left:20px;\" src=\"../img/$mAuthor/$mAuthor.png\">";
+        echo "<div class=\"bName\"><a href=\"user.php?user=$mAuthor\">$mAuthor</a></div><div class=\"bDate\">$mDate</div></span>";
+        echo "<div class=\"messageBlock\">$printMess</div></div>";
+        // so print out the icon if the person has a profile icon
+      } else {
+        echo "<div class=\"writerBlock\"><img style=\"height:50px; width:50px; margin-bottom:10px; margin-right:5px; float:left; margin-left:20px;\" src=\"../img/default.png\">";
+        echo "<div class=\"bName\"><a href=\"user.php?user=$mAuthor\">$mAuthor</a></div><div class=\"bDate\">$mDate</div></span>";
+        echo "<div class=\"messageBlock\">$printMess</div></div>";
+      } // if the user has not uploaded a profile picture, then they will automatically use the default picture
     } // this prints out the message
 
     $retMess->close();
