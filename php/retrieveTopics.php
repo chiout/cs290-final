@@ -35,7 +35,7 @@ if ($number > 0) {
  	  echo 'Error retrieving topics1';
 	} // this connects to the database
 
-	if (!($retTopic = $connect->prepare("SELECT id, name, author FROM topics"))) {
+	if (!($retTopic = $connect->prepare("SELECT id, name, author FROM topics ORDER BY name ASC"))) {
 	  echo 'Error retrieving topics5';
 	}
 

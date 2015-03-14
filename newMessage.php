@@ -76,7 +76,8 @@ require ("php/getMessages.php");
 ?>
 <!--below is the code for the form-->
 				<div id="responseBlock">
-					<div class="bDate">When posting, please do not spam the forum and please keep language appropriate for all audiences. Happy discussing!</div>
+					<div class="bDate">When posting, please do not spam the forum and please keep language appropriate for all audiences. Happy discussing!
+						<br> If your post does not automatically show up, please refresh. Happy discussing!</div>
 					<form name="addMessage">
 						<textarea name="newMessage" id="nMessage" onblur="show()"></textarea>
 						<button id="postButton" onclick="submitMessage()">Post</button>

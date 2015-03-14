@@ -39,9 +39,9 @@ if ($number > 0) {
  	  echo 'Error retrieving messages1';
 	} // this connects to the database
 
-	if (!($retMess = $connect->prepare("SELECT author, message, dates FROM messages WHERE topic=(?)"))) {
+	if (!($retMess = $connect->prepare("SELECT author, message, dates FROM messages WHERE topic=(?) ORDER BY dates ASC"))) {
 	  echo 'Error retrieving messages5';
-	}
+	} // retrieve the proper messages in order of ascending dates
 
 	if (!($retMess->bind_param("i", $id))) {
       echo 'Error retrieving messages';

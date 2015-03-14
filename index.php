@@ -42,6 +42,7 @@ if (!isset($_SESSION['user'])) {
 		<div id="contentBox">
 			<div id="content" ng-controller="signInFormCtrl">
 				<h2>Message Board Login</h2>
+				<p class="message">Please enter your username and password to sign in.</p>
 				<p id="errorMessage" class="hidden">Please re-enter your login credentials.</p>	
 				<form name="signIn" class="sIForm" novalidate>
 					<p class="block">
@@ -49,7 +50,7 @@ if (!isset($_SESSION['user'])) {
 						<input class="sIField" type="text" id="username" ng-model="user.username" ng-maxlength="10" required>
 					<p class="block">
 						<label for="password" class="sILabel">Password:</label>
-						<input class="sIField" type="password" id="password" ng-model="user.secret" ng-maxlength="10" required>
+						<input class="sIField" type="password" id="password" ng-model="user.secret" ng-maxlength="15" required>
 					<p class="block">
 						<button type="button" id="logInButton" onclick="checkLogin()" ng-disabled="signIn.$invalid">Log In</button>
 						<button type="button" id="signUpButton" onclick="window.location='signUp.php';">Sign Up</button>

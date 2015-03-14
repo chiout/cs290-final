@@ -57,7 +57,7 @@ require("php/accounts.php"); // include the code that adds the form elements to 
 						<br>
 						<ul class="message">
 							<li>Please keep usernames to a maximum of 8 characters. They must include an alphabet letter.
-							<li>Your password must be between 6-10 characters long.</li>
+							<li>Your password must be between 6-15 characters long.</li>
 							<li>If your text turns red, that means your input is not valid.</li>
 						</ul>
 					</p>
@@ -74,7 +74,7 @@ require("php/accounts.php"); // include the code that adds the form elements to 
 							<br><div class="hidden" id="errorMess">That username is already taken.</div>
 						<p class="block">
 							<label for="password" class="sILabel">Password:</label>
-							<input class="sIField" type="password" name="pword" id="password" ng-model="person.password" ng-minlength="6" ng-maxlength="10" required>
+							<input class="sIField" type="password" name="pword" id="password" ng-model="person.password" ng-minlength="6" ng-maxlength="15" required>
 						<p class="block">
 							<button type="submit" id="signUpButton" ng-disabled="signUp.$invalid">Sign Up</button>
 						</p>

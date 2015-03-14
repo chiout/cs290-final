@@ -93,6 +93,7 @@ require('php/getUserData.php');
 					<!--<input type="submit" name="sub" value="Submit">-->
 					<button type="submit" id="editButton">Upload</button>
 				</form>
+				<p class="message">After you click upload, refresh to see your uploaded icon below.</p>
 				<!-- based this code off lines 1-4 of the HTML code found on http://codular.com/php-file-uploads-->
 <?php
 require('php/imgUpload.php'); // this will handle the image uploads

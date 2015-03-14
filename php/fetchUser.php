@@ -54,6 +54,13 @@ if (isset($_GET['user'])) {
 			<span id=\"pInfo\">$bio</span>";
 	// retrieve data is GET variable has a value
 	// otherwise we will let the user know it is an empty search!
+
+	if (file_exists("../img/$otherUser")){
+        echo "<br><br><span id=\"pName\">Profile Pic/Icon: </span><img style=\"height:50px; width:50px;\" src=\"../img/$otherUser/$otherUser.png\">";
+        // so print out the icon if the person has a profile icon
+      } else {
+        echo "<br><br><span id=\"pName\">Profile Pic/Icon: </span><img style=\"height:50px; width:50px;\" src=\"../img/default.png\">";
+      } // if the user has not uploaded a profile picture, the default profile icon will display
 } else {
 	echo "<h3>This is an empty search!</h3>";
 }
