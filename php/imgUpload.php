@@ -1,5 +1,9 @@
 <?php
 
+// this file will upload PNG images of less than 160kb into a img directory in the web directory
+// a personalized folder will be created for each user and their profile picture will be found in that directory
+// their profile picture will be renamed to their username and it will be replaced each them they upload a new picture
+
 if (file_exists("../img/$username")){
 	echo "<p class=\"message\">Your Uploaded Icon:</p>
 	<img style=\"height:50px; width:50px; margin-bottom:10px;\" src=\"../img/$username/$username.png\">";

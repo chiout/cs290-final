@@ -75,3 +75,8 @@ if ($number > 0) {
 	echo '<div class="writerBlock"><div class="bName">There are currently no messages. You should start the conversation!</div></div>';
 	// if there are no current topics in the database, then this will output
 }
+
+/*
+all prepared statements used in the php files in this website are based on prepared statements format found here:
+http://php.net/manual/en/mysqli.quickstart.prepared-statements.php (primarily examples 1, 2, 6)
+*/

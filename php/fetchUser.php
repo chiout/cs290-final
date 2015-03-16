@@ -65,4 +65,8 @@ if (isset($_GET['user'])) {
 	echo "<h3>This is an empty search!</h3>";
 }
 
+/*
+all prepared statements used in the php files in this website are based on prepared statements format found here:
+http://php.net/manual/en/mysqli.quickstart.prepared-statements.php (primarily examples 1, 2, 6)
+*/
 

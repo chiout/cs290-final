@@ -217,6 +217,10 @@ h2 {
 	width:93%;
 }
 
+#nMessage.ng-invalid {
+	color:red;
+}
+
 #responseBlock {
 	background-color: #E2E2FF;
 	border-radius: 1em;
@@ -358,4 +362,14 @@ h3 {
 .sideBySide {
 	float:left;
 	display:block;
+}
+
+/* styling to create empty space at bottom of page */
+.empty {
+	background-color:#E4FFE5;
+	bottom:-10;
+	height:30px;
+	margin-top:20px;
+	position:relative;
+	width:100%;
 }

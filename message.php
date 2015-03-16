@@ -14,9 +14,6 @@ if ((isset($_GET['logout'])) && ($_GET['logout']==1)) {
   header("Location: $home", true);
   die();
 }
-/*if (!isset($_SESSION['newTopic'])) {
-	$_SESSION['newTopic'] = $_POST['startField'];
-}*/
 
 if (!isset($_SESSION['user'])) {
 	session_destroy();
@@ -40,6 +37,7 @@ require ("php/getExistingInfo.php"); // pull information based on the topic ID
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Muli:300,400|Roboto:400,300,700,900,500|Pontano+Sans' rel='stylesheet' type='text/css'>
 		<LINK type="text/css" rel="stylesheet" href="css/styling.css">
 		<script src="js/submitMessage.js"></script>
@@ -49,12 +47,16 @@ require ("php/getExistingInfo.php"); // pull information based on the topic ID
 			// console.log(topicN);
 			// this gets the values from the PHP variables which fetched the data from the topics table
 
-			function show() {
-				console.log(document.getElementById("nMessage").value);
-		    }
 		</script>
+		<script>
+			angular.module("checkMInput", []).controller("checkMInputCtrl", function ($scope) {
+				$scope.fields={};
+				// use Google's Hosted AngularJS library to do form validation for the biography
+			});
+		</script>
+		<title><?php echo $topicName; ?></title>
 	</head>
-	<body class="background">
+	<body class="background" ng-app="checkMInput" ng-controller="checkMInputCtrl">
 		<div class="header">
 			<div class="nav">
 				<a href="message.php?logout=1">Logout</a>
@@ -93,13 +95,15 @@ require ("php/getMessages.php");
 <!--below is the code for the form-->
 				<div id="responseBlock">
 					<div class="bDate">When posting, please do not spam the forum and please keep language appropriate for all audiences. 
-						<br> If your post does not automatically show up, please refresh. Happy discussing!</div>
+						<br> If your post does not automatically show up, please refresh.
+						<br> Please limit your word count to 700 characters. Happy discussing!</div>
 					<form name="addMessage">
-						<textarea name="newMessage" id="nMessage" onblur="show()"></textarea>
-						<button id="postButton" onclick="submitMessage()">Post</button>
+						<textarea name="newMessage" id="nMessage" ng-model="fields.message" ng-maxlength="500"></textarea>
+						<button id="postButton" onclick="submitMessage()" ng-disabled="addMessage.$invalid">Post</button>
 					</form>
 				</div>
 			</div>
 		</div>
+		<div class="empty"></div>
 	</body>
 </html>

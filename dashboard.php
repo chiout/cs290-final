@@ -46,6 +46,7 @@ $username = $_SESSION['user']; // continues the session
 			// this allows Javascipt to take the value of a php variable
 			console.log(user);
 		</script>
+		<title>Dashboard</title>
 	</head>
 	<body class="background">
 		<div class="header">
@@ -85,9 +86,10 @@ require('php/retrieveTopics.php'); //this will retrieve the list of topics as ra
 					<form name="newTopicForm" method="POST" action="newMessage.php">
 						<input type="text" id="startField" name="startField">
 						<button id="postButton" onclick="send()">Start It!</button>
-					</form>
+					</form> <!--this will start a new page for a new topic -->
 				</div>
 			</div>
 		</div>
+		<div class="empty"></div>
 	</body>
 </html>

@@ -1,5 +1,7 @@
 <?php
 
+// this will check to see if an username is already taken during account registration
+
 require("../../cred.php");
 
 $username = $_GET['username'];
@@ -26,6 +28,10 @@ if (!($checkUser->execute())) {
 $checkUser->store_result();
 
 $entries = $checkUser->num_rows;
+/*
+http://php.net/manual/en/mysqli-result.num-rows.php
+num_rows usage based on Example #1, Row 13
+*/
 
 if ($entries > 0) {
 	echo "taken";
@@ -34,15 +40,10 @@ if ($entries > 0) {
 if ($entries <= 0) {
 	echo "available";
 }
-/*
-if (!($checkUser->bind_result($usernameExists))) {
-      echo "Error verifying username";
-    }
 
-if ($usernameExists) {
-	echo "taken";
-} else {
-	echo "available"
-}
-*/
 $checkUser->close();
+
+/*
+all prepared statements used in the php files in this website are based on prepared statements format found here:
+http://php.net/manual/en/mysqli.quickstart.prepared-statements.php (primarily examples 1, 2, 6)
+*/

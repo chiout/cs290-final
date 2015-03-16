@@ -29,21 +29,26 @@ if (!isset($_SESSION['user'])) {
 		<script src="js/verifyLogin.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Muli:300,400|Roboto:400,300,700,900,500|Pontano+Sans' rel='stylesheet' type='text/css'>
 		<LINK type="text/css" rel="stylesheet" href="css/styling.css">
+		<title>Message Board</title>
 		<script>
 			angular.module("signInForm", []).controller("signInFormCtrl", function ($scope, $location) {
 				$scope.user= {}; // declare the empty object
+				// purpose of Angular JS is to do immediate form validation
+				// the sign in button will not activate unless all the input is valid
+				// the text will turn red to visually let the user know that the input is not valid
 			});
 		</script>
 	</head>
 	<body class="background" ng-app="signInForm">
 		<div class="header">
-			<!--navigation goes here -->
+			<!--empty navigation -->
 		</div>
 		<div id="contentBox">
 			<div id="content" ng-controller="signInFormCtrl">
 				<h2>Message Board Login</h2>
 				<p class="message">Please enter your username and password to sign in.</p>
 				<p id="errorMessage" class="hidden">Please re-enter your login credentials.</p>	
+				<!-- This will only appear if AJAX's PHP feedback is "invalid" -->
 				<form name="signIn" class="sIForm" novalidate>
 					<p class="block">
 						<label for="username" class="sILabel">Username:</label>
@@ -53,7 +58,9 @@ if (!isset($_SESSION['user'])) {
 						<input class="sIField" type="password" id="password" ng-model="user.secret" ng-maxlength="15" required>
 					<p class="block">
 						<button type="button" id="logInButton" onclick="checkLogin()" ng-disabled="signIn.$invalid">Log In</button>
+						<!-- The log in button will not activate unless username and password are of the right lenghts -->
 						<button type="button" id="signUpButton" onclick="window.location='signUp.php';">Sign Up</button>
+						<!-- This button links to the sign up page -->
 					</p>
 				</form>
 			</div>

@@ -1,5 +1,13 @@
 <?php
 
+// this page adds an user account after the username is verified to not be taken
+// this will add another row to the credentials table in the database
+
+/*
+all prepared statements used in the php files in this website are based on prepared statements format found here:
+http://php.net/manual/en/mysqli.quickstart.prepared-statements.php (primarily examples 1, 2, 6)
+*/
+
 require("../cred.php");
 
 $sUClass = '"notHidden"';
@@ -13,6 +21,8 @@ $fName = $_POST['first'];
 $lName = $_POST['last'];
 $username = $_POST['username'];
 $word = $_POST['pword'];
+$word = password_hash($word, PASSWORD_DEFAULT); // hash the password
+/* password hashing: based on line 9 found here: http://php.net/manual/en/function.password-hash.php*/
 $username = strtolower($username);
 
 $_POST = array(); // clear the post array

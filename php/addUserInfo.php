@@ -1,6 +1,7 @@
 <?php
 
-// this will retrieve user information from the database
+// this will add the age and bio information to the credential's table
+// this will specifically add the age and bio data to the row with the signed in user's username
 
 require("../cred.php");
 
@@ -32,6 +33,10 @@ if (isset($_POST['age']) || isset($_POST['bio'])) {
 
 
 // once the post request is submitted, then the age and bio are added to the database
+/*
+all prepared statements used in the php files in this website are based on prepared statements format found here:
+http://php.net/manual/en/mysqli.quickstart.prepared-statements.php (primarily examples 1, 2, 6)
+*/
 
 
 

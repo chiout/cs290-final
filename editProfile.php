@@ -37,8 +37,16 @@ require('php/addUserInfo.php');
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Muli:300,400|Roboto:400,300,700,900,500|Pontano+Sans' rel='stylesheet' type='text/css'>
 		<LINK type="text/css" rel="stylesheet" href="css/styling.css">
+		<title>Edit Profile</title>
+		<script>
+			angular.module("checkInputMod", []).controller("checkInputCtrl", function ($scope) {
+				$scope.fields={};
+				// use Google's Hosted AngularJS library to do form validation for the biography
+			});
+		</script>
 	</head>
 	<body class="background">
 		<div class="header">
@@ -55,25 +63,28 @@ require('php/addUserInfo.php');
 				Welcome <?php echo $username; ?>
 			</div>
 		</div>
-		<div id="profileBox">
+		<div id="profileBox" ng-app="checkInputMod" ng-controller="checkInputCtrl">
 			<div id="dashContent" style="overflow:hidden">
 				<!-- found this code here: http://stackoverflow.com/questions/1844207/how-to-make-a-div-to-wrap-two-float-divs-inside, Mikael S's code, line 1-->
 				<h2>Your Information</h2>
 				<p class="message">
 					Below is the account information we have for you. To add/edit your age and biography, please fill out the form below.
+					Please limit your biography to 500 characters. 
 				</p>
 <?php
 require('php/getUserData.php');
 ?>
 				<hr>
-				<form method="POST" action="editProfile.php">
+				<p class="message">Both fields are required</p>
+				<form name="editProf" method="POST" action="editProfile.php" novalidate>
 					<p class="block">
 						<label for="age" class="sILabel">Age:</label>
-						<input class="sIField" type="number" id="age" name="age">
+						<input class="sIField" type="number" id="age" name="age" ng-model="fields.age" required>
 					<p class="block">
 						<label for="bio" class="sILabel">Bio:</label>
-						<textarea class="sIField" id="bio" name="bio"></textarea>
-					<button id="editButton">Add Information</button>
+						<textarea class="sIField" id="bio" name="bio" ng-maxlength="500" ng-model="fields.bio" required></textarea>
+						<!-- If the text is over 500 characters, then the button will deactivate-->
+					<button id="editButton" ng-disabled="editProf.$invalid">Add Information</button>
 				</form>
 				<!-- a page refresh is good for this so we did not use Ajax -->
 				<hr>
@@ -98,6 +109,8 @@ require('php/getUserData.php');
 <?php
 require('php/imgUpload.php'); // this will handle the image uploads
 ?>
+			</div>
 		</div>
+		<div class="empty"></div>
 	</body>
 </html>

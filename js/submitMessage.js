@@ -20,3 +20,6 @@ function submitMessage() {
 	// this ajax call will work in the background
 
 }
+
+/* found info on this on http://www.w3schools.com/ajax/ajax_xmlhttprequest_send.asp
+Lines 1-2 for all 3 GET examples */
