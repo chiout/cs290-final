@@ -1,0 +1,123 @@
+Start: Sun, 15 Mar 2015 12:37:00 -0700 
+End: Sun, 15 Mar 2015 18:05:36 -0700 
+Tasks: Finished making minor edits and adding appropriate comments, also removed archive folder which consisted of ol
+
+Start: Sat, 14 Mar 2015 12:00:00 -0700 
+End: Sat, 14 Mar 2015 13:24:22 -0700 
+Tasks: Made some minor revisions to the website and altered some little details such as ensuring messages are ordered
+
+Start: Thu, 12 Mar 2015 14:00:00 -0700
+End: Thu, 12 Mar 2015 19:22:13 -0700 
+Tasks: Finished working on uploading profile pic capability and the picture or a default picture will now show up on 
+
+Start: Thu, 12 Mar 2015 12:02:00 -0700
+End: Thu, 12 Mar 2015 13:32:02 -0700 
+Tasks: Finished debugging edit profile page and added page for viewers to view each other's profiles and also added s
+
+Start: Wed, 11 Mar 2015 23:15:00 -0700
+End: Thu, 12 Mar 2015 01:10:07 -0700 
+Tasks: Added some more content to dashboard and messages pages, and also worked on the edit profile page
+
+Start: Wed, 11 Mar 2015 16:49:58 -0700
+End: Wed, 11 Mar 2015 17:05:22 -0700 
+Tasks: Started working on styling for profile page
+
+Start: Wed, 11 Mar 2015 15:40:00 -0700
+End: Wed, 11 Mar 2015 16:49:58 -0700 
+Tasks: Sorted supporting files into proper js and php files to keep the directory more organized
+
+Start: Wed, 11 Mar 2015 13:30:00 -0700
+End: Wed, 11 Mar 2015 14:10:07 -0700 
+Tasks: Finished implementing ability to visit forum pages for existing topics
+
+Start: Tue, 10 Mar 2015 23:42:00 -0700
+End: Wed, 11 Mar 2015 00:06:54 -0700 
+Tasks: Modified the header styling and also changed the name of message to newMessages
+
+Start: Tue, 10 Mar 2015 15:17:14 -0700 
+End: Tue, 10 Mar 2015 15:30:31 -0700 
+Tasks: Added dates to each message post and fixed a minor error
+
+Start: Tue, 10 Mar 2015 14:00:00 -0700
+End: Tue, 10 Mar 2015 15:17:14 -0700 
+Tasks: Finished debugging message page for new topics
+
+Start: Tue, 10 Mar 2015 11:00:00 -0700 
+End: Tue, 10 Mar 2015 12:47:51 -0700 
+Tasks: Did some debugging and added logout redirect
+
+Start:  Mon, 9 Mar 2015 14:31:00 -0700
+End: Mon, 9 Mar 2015 15:58:56 -0700 
+Tasks: Began working on more functionalities for the message board, still need to do more debugging
+
+Start: Fri, 6 Mar 2015 21:46:00 -0800 
+End: Fri, 6 Mar 2015 21:54:50 -0800 
+Tasks: Changed button type for loginpage
+
+Start: Fri, 6 Mar 2015 00:00:00 -0800
+End: Fri, 6 Mar 2015 00:46:39 -0800 
+Tasks: Successfully implemented php code to retrieve all list of topics from the database'
+
+Start: Thu, 5 Mar 2015 19:04:36 -0800 
+End: Thu, 5 Mar 2015 23:11:12 -0800 
+Tasks: Added more features to dashboard, users can now create topics and it will be saved in the database
+
+Start: Thu, 5 Mar 2015 18:20:00 -0800
+End: Thu, 5 Mar 2015 19:04:36 -0800 
+Tasks: Began working on new dashboard layout
+
+Start: Thu, 5 Mar 2015 17:07:13 -0800 
+End: Thu, 5 Mar 2015 17:41:39 -0800 
+Tasks: Modified files to start session when credentials right after credentials are verified
+
+Start: Thu, 5 Mar 2015 12:20:00 -0800 
+End: Thu, 5 Mar 2015 17:07:13 -0800 
+Tasks: Added ajax to sign up form and to the sign in form, implemented sign in capability
+
+Start: Tue, 3 Mar 2015 16:36:56 -0800
+End: Tue, 3 Mar 2015 19:08:32 -0800 
+Tasks: Designed dashboard page and also made some modifications to some pages
+
+Start: Tue, 3 Mar 2015 10:14:00 -0800
+End: Tue, 3 Mar 2015 16:36:56 -0800 
+Tasks: Fixed sign up page and now it performs dynamically, put unneeded files in archive folder for reference later
+
+Start: Mon, 2 Mar 2015 19:40:22 -0800  
+End: Mon, 2 Mar 2015 23:05:42 -0800 
+Tasks: Created a work around for alert messages after a form submission:
+
+Start: Mon, 2 Mar 2015 19:07:43 -0800 
+End: Mon, 2 Mar 2015 19:40:22 -0800 
+Tasks: Made more modifications, will revisit in next work session to make some more changes
+
+Start: Mon, 2 Mar 2015 18:52:43 -0800 
+End: Mon, 2 Mar 2015 19:07:43 -0800 
+Tasks: This version works but may not be secure, will keep trying new things
+
+Start: Mon, 2 Mar 2015 18:25:00 -0800 
+End: Mon, 2 Mar 2015 18:52:43 -0800 
+Tasks: Finished debugging Ajax
+
+Start: Mon, 2 Mar 2015 15:40:00 -0800 
+End: Mon, 2 Mar 2015 16:59:00 -0800 
+Tasks: Continued debugging AJAX issue and have yet to find a solution
+
+Start: Mon, 2 Mar 2015 14:08:13 -0800 
+End: Mon, 2 Mar 2015 14:42:35 -0800 
+Tasks: Continued debugging without much success and will revisit problem later
+
+Start: Mon, 2 Mar 2015 11:30:00 -0800
+End: Mon, 2 Mar 2015 14:08:13 -0800 
+Tasks: Began implementing AJAX, saving this version before debugging more
+
+Start: Sun, 1 Mar 2015 23:52:00 -0800 
+End: Mon, 2 Mar 2015 00:42:16 -0800 
+Tasks: Connected sign up page with database with new php file
+
+Start: Sun, 1 Mar 2015 21:26:17 -0800 
+End: Sun, 1 Mar 2015 22:46:43 -0800 
+Tasks: Created signUp.html page and made more additions to index.html and the styling for both pages
+
+Start: Sun, 1 Mar 2015 19:30:00 -0800 
+End: Sun, 1 Mar 2015 21:26:17 -0800 
+Tasks: Started making login page with html and css
